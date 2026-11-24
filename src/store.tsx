@@ -3,7 +3,7 @@ import type { Project, Task } from "./types";
 import { seedProjects } from "./data/seed";
 import { uid, TODAY } from "./lib";
 
-const KEY = "revops-pmo-v1";
+const KEY = "revops-pmo-v2";
 
 interface Store {
   projects: Project[];

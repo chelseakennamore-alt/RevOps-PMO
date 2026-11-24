@@ -15,7 +15,9 @@ export default function ExecSummary({ onOpen }: { onOpen: (id: string) => void }
   const order: Status[] = ["off_track", "at_risk", "on_track", "not_started", "complete"];
   const sorted = [...projects].sort((a, b) => order.indexOf(a.status) - order.indexOf(b.status));
 
-  const headline = attention.length === 0
+  const headline = count("not_started") === n
+    ? `${n} projects are loaded; none have started yet. Add owners, dates and status to populate this summary.`
+    : attention.length === 0
     ? `All ${n} projects are healthy.`
     : `${count("on_track") + count("complete")} of ${n} projects are on track or complete; ${attention.length} need attention.`;
 

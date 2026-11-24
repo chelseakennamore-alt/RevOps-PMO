@@ -23,13 +23,13 @@ export const progress = (p: Project) => {
   const t = allTasks(p);
   return t.length ? Math.round((t.filter((x) => x.status === "done").length / t.length) * 100) : 0;
 };
-export const isOverdue = (t: Task) => t.status !== "done" && t.due < TODAY;
-export const fmt = (d: string) =>
+export const isOverdue = (t: Task) => t.status !== "done" && !!t.due && t.due < TODAY;
+export const fmt = (d: string) => !d ? "—" :
   new Date(d + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-export const fmtShort = (d: string) =>
+export const fmtShort = (d: string) => !d ? "—" :
   new Date(d + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
 export const addDays = (d: string, n: number) => {
   const x = new Date(d + "T00:00:00"); x.setDate(x.getDate() + n); return x.toISOString().slice(0, 10);
 };
 export const nextTask = (p: Project): Task | undefined =>
-  allTasks(p).filter((t) => t.status !== "done").sort((a, b) => a.due.localeCompare(b.due))[0];
+  allTasks(p).filter((t) => t.status !== "done").sort((a, b) => (a.due || "9999").localeCompare(b.due || "9999"))[0];
