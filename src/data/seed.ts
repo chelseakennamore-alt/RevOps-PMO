@@ -3,7 +3,7 @@ import type { Phase, Project } from "../types";
 const NAMES = [
   "Gong Forecasts", "Ignite Territory Planning", "Insurance Cosell", "Datamarts", "BDR Management",
   "Discounts and Approvals", "Lean Layer", "QBR List", "6 Data Unlocks", "RevOps Ticketing Queue",
-  "Qualified", "Clay", "Multiyear Contracts", "Competitive Deals",
+  "Qualified", "Clay", "Multiyear Contracts", "Competitive Deals", "Comp Plan Rollout",
 ];
 
 const SKELETON: [string, [string, string]][] = [
